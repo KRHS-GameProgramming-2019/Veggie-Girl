@@ -1,4 +1,3 @@
-#MATTT WUZ HEEEREEE
 import pygame, sys, math, random
 from Player import *
 from Items import *
@@ -9,15 +8,19 @@ from Sounds import *
 from Steak import *
 from Tilesets import *
 pygame.init()
-win = pygame.display.set_mode((500, 500))
+win = pygame.display.set_mode((1000, 900))
 pygame.display.set_caption("Veggie Girl")
 
-x = 50
-y = 50
+
+screenWidth = 900
+screenLength = 1000
+
+x = 5
+y = 835
 height = 60
 width = 40
 vel = 5
-size = [500, 500]
+
 
 isJump = False
 jumpCount = 10
@@ -29,3 +32,23 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+    
+    keys = pygame.key.get_pressed()
+    
+    if keys[pygame.K_LEFT] and x > vel:
+        x -= vel
+    if keys[pygame.K_RIGHT] and x < screenLength - width - vel:
+        x += vel
+    if keys[pygame.K_UP] and y > vel:
+        y -= vel
+    if keys[pygame.K_DOWN] and y < screenWidth - height - vel:
+        y += vel
+    if keys[pygame.K_SPACE]:
+        isJump = True
+
+    win.fill((0, 0, 0))
+    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
+    pygame.display.update()
+pygame.quit()
+    
+    
