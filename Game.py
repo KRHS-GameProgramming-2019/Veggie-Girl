@@ -8,15 +8,16 @@ from Sounds import *
 from Steak import *
 from Tilesets import *
 pygame.init()
-win = pygame.display.set_mode((1000, 900))
+# set these to as follows (1000, 900)
+win = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("Veggie Girl")
 
-
-screenWidth = 900
-screenLength = 1000
+# set to width being 900 and length being 1000
+screenWidth = 500
+screenLength = 500
 
 x = 5
-y = 835
+y = 435
 height = 60
 width = 40
 vel = 5
