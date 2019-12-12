@@ -9,9 +9,9 @@ from Steak import *
 from Tilesets import *
 pygame.init()
 
-walkRight = [pygame.image.load('BroccoliR1.png')]
-
-char = pygame.image.load('Broccolistanding.png')
+walkRight = [pygame.image.load('Images/Player/BroccoliR1.png')]
+walkLeft = [pygame.image.load('Images/Player/BroccoliL1.png')]
+char = pygame.image.load('Images/Player/Broccolistanding.png')
 
 # set these to as follows when ready (1000, 900)
 win = pygame.display.set_mode((500, 500))
@@ -29,19 +29,18 @@ jumpCount = 10
 left = False
 right = False
 walkCount = 0
+clock = pygame.time.Clock()
 
 def redrawGameWindow():
     global walkCount
-    
     #to use a picture instead use win.blit (name of image(0, 0))
-    win.fill((0, 0, 0)) 
-    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
+    win.fill((0, 0, 0))
     pygame.display.update()
-
+    drawPlayer()
 
 run = True
 while run:
-    pygame.time.delay(50)
+    clock.tick(27)
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -51,11 +50,23 @@ while run:
     
     if keys[pygame.K_LEFT] and x > vel:
         x -= vel
-    if keys[pygame.K_RIGHT] and x < screenLength - width - vel:
+        left = True
+        right = False
+    elif keys[pygame.K_RIGHT] and x < screenLength - width - vel:
         x += vel
+        right = True
+        left = False
+    else:
+        right = False
+        left = False
+        walkCount = 0
+        
     if not (isJump):
         if keys[pygame.K_SPACE]:
             isJump = True
+            right = False
+            left = False
+            walkCount = 0
     else:
         if jumpCount >= -10:
             neg = 1
@@ -68,6 +79,7 @@ while run:
             jumpCount = 10
             
     redrawGameWindow()
+    drawPlayer()
 
 
 pygame.quit()
