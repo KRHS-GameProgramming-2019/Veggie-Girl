@@ -8,23 +8,36 @@ from Sounds import *
 from Steak import *
 from Tilesets import *
 pygame.init()
-# set these to as follows (1000, 900)
+
+walkRight = [pygame.image.load('BroccoliR1.png')]
+
+char = pygame.image.load('Broccolistanding.png')
+
+# set these to as follows when ready (1000, 900)
 win = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("Veggie Girl")
-
 # set to width being 900 and length being 1000
 screenWidth = 500
 screenLength = 500
-
 x = 5
 y = 435
 height = 60
 width = 40
 vel = 5
-
-
 isJump = False
 jumpCount = 10
+left = False
+right = False
+walkCount = 0
+
+def redrawGameWindow():
+    global walkCount
+    
+    #to use a picture instead use win.blit (name of image(0, 0))
+    win.fill((0, 0, 0)) 
+    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
+    pygame.display.update()
+
 
 run = True
 while run:
@@ -41,10 +54,6 @@ while run:
     if keys[pygame.K_RIGHT] and x < screenLength - width - vel:
         x += vel
     if not (isJump):
-        if keys[pygame.K_UP] and y > vel:
-            y -= vel
-        if keys[pygame.K_DOWN] and y < screenWidth - height - vel:
-            y += vel
         if keys[pygame.K_SPACE]:
             isJump = True
     else:
@@ -57,10 +66,10 @@ while run:
         else:
             isJump = False
             jumpCount = 10
+            
+    redrawGameWindow()
 
-    win.fill((0, 0, 0))
-    pygame.draw.rect(win, (255, 0, 0), (x, y, width, height))
-    pygame.display.update()
+
 pygame.quit()
     
     
