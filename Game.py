@@ -33,10 +33,21 @@ clock = pygame.time.Clock()
 
 def redrawGameWindow():
     global walkCount
+    if walkCount  + 1 >= 3:
+        walkCount = 0
+    if left:
+        win.blit(walkLeft [walkCount//3], (x,y))
+        walkCount += 1
+    elif right:
+        win.blit(walkRight [walkCount//3], (x, y))
+        walkCount += 1
+    else:
+        win.blit (char, (x, y))
+        
     #to use a picture instead use win.blit (name of image(0, 0))
     win.fill((0, 0, 0))
     pygame.display.update()
-    drawPlayer()
+
 
 run = True
 while run:
@@ -79,7 +90,6 @@ while run:
             jumpCount = 10
             
     redrawGameWindow()
-    drawPlayer()
 
 
 pygame.quit()
