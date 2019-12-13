@@ -1,4 +1,3 @@
-#MATTT WUZ HEEEREEE
 import pygame, sys, math, random
 from Player import *
 from Items import *
