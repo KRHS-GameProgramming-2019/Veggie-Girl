@@ -1,4 +1,12 @@
 import sys, math, pygame, random
+from Player import *
+from Tilesets import *
+from Sounds import *
+from Levels import *
+from Items import *
+from Bosses import *
+from SaltSpike import *
+from Steak import *
 pygame.init()
 
 clock = pygame.time.Clock()
