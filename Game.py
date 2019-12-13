@@ -13,10 +13,10 @@ walkRight = [pygame.image.load('Images/Player/BroccoliR1.png')]
 walkLeft = [pygame.image.load('Images/Player/BroccoliL1.png')]
 char = pygame.image.load('Images/Player/Broccolistanding.png')
 
-# set these to as follows when ready (1000, 900)
+
 win = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("Veggie Girl")
-# set to width being 900 and length being 1000
+
 screenWidth = 500
 screenLength = 500
 x = 5
@@ -44,7 +44,7 @@ def redrawGameWindow():
     else:
         win.blit (char, (x, y))
         
-    #to use a picture instead use win.blit (name of image(0, 0))
+
     win.fill((0, 0, 0))
     pygame.display.update()
 
