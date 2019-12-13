@@ -9,9 +9,7 @@ from Steak import *
 from Tilesets import *
 pygame.init()
 
-walkRight = [pygame.image.load('Images/Player/BroccoliR1.png')]
-walkLeft = [pygame.image.load('Images/Player/BroccoliL1.png')]
-char = pygame.image.load('Images/Player/Broccolistanding.png')
+
 
 # set these to as follows when ready (1000, 900)
 win = pygame.display.set_mode((500, 500))
@@ -33,10 +31,22 @@ clock = pygame.time.Clock()
 
 def redrawGameWindow():
     global walkCount
+    if walkCount  +1 >= 3:
+        walkCount = 0
+    if left:
+        win.blit(walkLeft [walkCount//3], (x,y))
+        walkCount += 1
+    elif right:
+        win.blit(walkRight [walkCount//3], (x, y))
+        walkCount += 1
+    else:
+        win.blit (char, (x, y))
+        
+    pygame.display.update()
     #to use a picture instead use win.blit (name of image(0, 0))
     win.fill((0, 0, 0))
     pygame.display.update()
-    drawPlayer()
+    
 
 run = True
 while run:
