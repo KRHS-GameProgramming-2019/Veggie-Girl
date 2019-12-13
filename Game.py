@@ -44,14 +44,15 @@ def redrawGameWindow():
     else:
         win.blit (char, (x, y))
         
-
+    pygame.display.update()
+    #to use a picture instead use win.blit (name of image(0, 0))
     win.fill((0, 0, 0))
     pygame.display.update()
-
+    
 
 run = True
 while run:
-    clock.tick(3)
+    clock.tick(27)
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
