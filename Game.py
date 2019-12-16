@@ -9,21 +9,8 @@ from SaltSpike import *
 from Steak import *
 pygame.init()
 
-clock = pygame.time.Clock()
-
-x = 5
-y = 440
-height = 60
-width = 40
 screenLength = 500
 screenWidth = 500
-vel = 5
-left = False
-right = False
-jumpCount = 10
-isJump = False
-walkCount = 0
-
 win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
@@ -31,25 +18,34 @@ walkLeft = [pygame.image.load("Images/Player/BroccoliL1final.png")]
 walkRight = [pygame.image.load("Images/Player/BroccoliR1.png")]
 char = pygame.image.load("Images/Player/Broccolistanding.png")
 
+clock = pygame.time.Clock()
+
+class player():
+    def__init__(self, x, y, width, height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.vel = 5
+        self.isJump = False
+        self.jumpCount = 10
+        self.left = False
+        self.right = False
+        self.walkCount = 0
+    
+    def draw()
+
+
 def redrawGameWindow():
 	global walkCount
 
 	win.fill((0, 0, 0))
 	
-	if walkCount + 1 >= 3:
-		walkcount = 0
-	if left:
-		win.blit(walkLeft[walkCount//1000], (x, y))
-		walkCount += 1
-	elif right:
-		win.blit(walkRight[walkCount//1000], (x, y))
-		walkCount += 1
-	else:
-		win.blit(char, (x, y))
+
 
 	pygame.display.update()
 
-
+veggie = player(300, 410, 40, 60)
 run = True
 while run:
 	clock.tick(27)
@@ -58,34 +54,34 @@ while run:
 			run = False
 	keys = pygame.key.get_pressed()
 
-	if keys[pygame.K_LEFT] and x > vel:
-		x -= vel
-		left = True
-		right = False
-	elif keys[pygame.K_RIGHT] and x < screenWidth - width - vel:
-		x += vel
-		left = False
-		right = True
+	if keys[pygame.K_LEFT] and veggie.x > veggie.vel:
+		veggie.x -= veggie.vel
+		veggie.left = True
+		veggie.right = False
+	elif keys[pygame.K_RIGHT] and x < screenWidth - veggie.width - veggie.vel:
+		veggie.x += veggie.vel
+		veggie.left = False
+		veggie.right = True
 	else:
-		right = False
-		left = False
-		walkCount = 0
+		veggie.right = False
+		veggie.left = False
+		veggie.walkCount = 0
 
 	if not(isJump):
 		if keys[pygame.K_SPACE]:
-			isJump = True
+			veggie.isJump = True
 
-			walkCount = 0
+			veggie.walkCount = 0
 	else:
-		if jumpCount >= -10:
+		if veggie.jumpCount >= -10:
 			neg = 1
-			if jumpCount < 0:
-				neg = -1
-			y -= (jumpCount ** 2) * 0.3 * neg
-			jumpCount -= 1
+			if veggie.jumpCount < 0:
+                neg = -1
+			veggie.y -= (veggie.jumpCount ** 2) * 0.3 * neg
+			veggie.jumpCount -= 1
 		else:
-			isJump = False
-			jumpCount = 10
+			veggie.isJump = False
+			veggie.jumpCount = 10
 
 	redrawGameWindow()
 
