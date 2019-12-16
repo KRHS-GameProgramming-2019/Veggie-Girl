@@ -1,6 +1,13 @@
 Ground: 
-(Stage)
 
+(Stage)
+ColBreakz - HeartBeat
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Share Alike:
+If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
+https://www.newgrounds.com/audio/listen/745508
 
 (Boss)
 Domyeah - Final Boss
@@ -9,6 +16,7 @@ https://www.newgrounds.com/audio/listen/631160
 
 
 Water:
+
 (Stage)
 You are free to copy, distribute and transmit this work under the following conditions:
 Attribution:
@@ -18,25 +26,83 @@ If you alter, transform, or build upon this work, you may distribute the resulti
 https://www.newgrounds.com/audio/listen/772055
 
 
-(Boss)https://www.newgrounds.com/audio/listen/638233
+(Boss)
+Boss battle
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Noncommercial:
+You may not use this work for commercial purposes. 
+https://www.newgrounds.com/audio/listen/638233
 
 Sky:
-(Boss)https://www.newgrounds.com/audio/listen/554044
-(Stage)https://www.newgrounds.com/audio/listen/895672
+
+(Boss)
+Bouncy BitHouse
+
+https://www.newgrounds.com/audio/listen/554044
+
+(Stage)
+Ásum | Twilight Party [House]
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Noncommercial:
+You may not use this work for commercial purposes. 
+Share Alike:
+If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
+https://www.newgrounds.com/audio/listen/895672
 
 Fire:
-(Boss)https://www.newgrounds.com/audio/listen/614535
-(Stage)https://www.newgrounds.com/audio/listen/488518
+
+(Boss)
+[ Electro ] Frontlines
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Noncommercial:
+You may not use this work for commercial purposes. 
+Share Alike:
+If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
+https://www.newgrounds.com/audio/listen/614535
+
+(Stage)
+Firestorm (intro)
+
+https://www.newgrounds.com/audio/listen/488518
 
 Techno/Space:
 (Boss)https://www.newgrounds.com/audio/listen/467339
 (Stage)https://www.newgrounds.com/audio/listen/444332
 
 
+Techno/Space:
+
+(Boss)
+At the Speed of Light
+
+https://www.newgrounds.com/audio/listen/467339
+
+(Stage)
+{dj-N} Robotic Nightmares
+
+https://www.newgrounds.com/audio/listen/444332
+
+
 Final Boss:
+Final Boss
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Noncommercial:
+You may not use this work for commercial purposes. *
+Share Alike:
+If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
 https://www.newgrounds.com/audio/listen/514911
 
 Credits Screen:
+Your Prelude (True)
+
 https://www.newgrounds.com/audio/listen/71108
 
 

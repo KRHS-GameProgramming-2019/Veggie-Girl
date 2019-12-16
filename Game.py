@@ -12,7 +12,7 @@ pygame.init()
 clock = pygame.time.Clock()
 
 x = 5
-y = 425
+y = 440
 height = 60
 width = 40
 screenLength = 500

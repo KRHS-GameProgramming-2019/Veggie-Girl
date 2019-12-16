@@ -1,3 +1,4 @@
 *.cpython-37.pyc
 *.pyc
 
+*.cpython-37.pyc~origin_master
