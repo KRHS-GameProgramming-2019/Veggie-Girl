@@ -24,28 +24,25 @@ def redrawGameWindow():
     veggie.draw(win)
     pygame.display.update()
 
-veggie = player(5, 425, 40, 60)
+veggie = Player(5, 425, 40, 60)
 run = True
 while run:
     clock.tick(27)
     for event in pygame.event.get():
         if event == pygame.QUIT:
             run = False
-    keys = pygame.key.get_pressed()
-
-    if keys[pygame.K_LEFT] and veggie.x > veggie.vel:
-        veggie.x -= veggie.vel
-        veggie.left = True
-        veggie.right = False
-    elif keys[pygame.K_RIGHT] and veggie.x < screenWidth - veggie.width - veggie.vel:
-        veggie.x += veggie.vel
-        veggie.left = False
-        veggie.right = True
-    else:
-        veggie.right = False
-        veggie.left = False
-        veggie.walkCount = 0
-
+            
+    elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                veggie.go("left")
+            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                veggie.go("right")
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    veggie.go("sleft")
+            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                veggie.go("sright")
+                
     if not(veggie.isJump):
         if keys[pygame.K_SPACE]:
             veggie.isJump = True
@@ -63,5 +60,6 @@ while run:
             veggie.jumpCount = 10
 
     redrawGameWindow()
+    
 
 pygame.quit()
