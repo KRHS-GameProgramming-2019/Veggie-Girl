@@ -32,14 +32,14 @@ while run:
         if event == pygame.QUIT:
             run = False
             
-    elif event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 veggie.go("left")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("right")
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                    veggie.go("sleft")
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                veggie.go("sleft")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("sright")
                 
