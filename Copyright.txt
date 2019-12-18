@@ -38,11 +38,6 @@ https://www.newgrounds.com/audio/listen/638233
 Sky:
 
 (Boss)
-Bouncy BitHouse
-
-https://www.newgrounds.com/audio/listen/554044
-
-(Stage)
 Ásum | Twilight Party [House]
 You are free to copy, distribute and transmit this work under the following conditions:
 Attribution:
@@ -52,6 +47,17 @@ You may not use this work for commercial purposes.
 Share Alike:
 If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
 https://www.newgrounds.com/audio/listen/895672
+
+(Stage)
+-Jumper 2-
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+Noncommercial:
+You may not use this work for commercial purposes. *
+Share Alike:
+If you alter, transform, or build upon this work, you may distribute the resulting creation only under a license identical to this one.
+https://www.newgrounds.com/audio/listen/858309
 
 Fire:
 
@@ -67,26 +73,21 @@ If you alter, transform, or build upon this work, you may distribute the resulti
 https://www.newgrounds.com/audio/listen/614535
 
 (Stage)
-Firestorm (intro)
-
-https://www.newgrounds.com/audio/listen/488518
-
-Techno/Space:
-(Boss)https://www.newgrounds.com/audio/listen/467339
-(Stage)https://www.newgrounds.com/audio/listen/444332
 
 
 Techno/Space:
 
 (Boss)
-At the Speed of Light
+Creo - Showdown
+You are free to copy, distribute and transmit this work under the following conditions:
+Attribution:
+You must give credit to the artist.
+https://www.newgrounds.com/audio/listen/753446
 
-https://www.newgrounds.com/audio/listen/467339
+
 
 (Stage)
-{dj-N} Robotic Nightmares
 
-https://www.newgrounds.com/audio/listen/444332
 
 
 Final Boss:
@@ -101,9 +102,7 @@ If you alter, transform, or build upon this work, you may distribute the resulti
 https://www.newgrounds.com/audio/listen/514911
 
 Credits Screen:
-Your Prelude (True)
 
-https://www.newgrounds.com/audio/listen/71108
 
 
 Additional Sound:
