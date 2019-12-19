@@ -1,9 +1,8 @@
 import pygame, sys, math, random
-from Game import *
 
 
 
-class player():
+class Player():
     def __init__(self, pos):
         self.walkLeftImages = [pygame.image.load("Images/Player/BroccoliL1final.png")]
         self.walkRightImages = [pygame.image.load("Images/Player/BroccoliR1.png")]

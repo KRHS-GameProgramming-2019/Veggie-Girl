@@ -7,6 +7,7 @@ from Items import *
 from Bosses import *
 from SaltSpike import *
 from Steak import *
+
 pygame.init()
 
 screenLength = 500
@@ -24,7 +25,7 @@ def redrawGameWindow():
     veggie.draw(win)
     pygame.display.update()
 
-veggie = Player(5, 425, 40, 60)
+veggie = Player(self, pos)
 run = True
 while run:
     clock.tick(27)
