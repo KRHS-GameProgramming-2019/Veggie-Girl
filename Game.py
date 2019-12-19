@@ -40,5 +40,9 @@ while run:
     win.blit(veggie.image, veggie.rect)
     pygame.display.flip()
     
+    
+
+
+    
 
 pygame.quit()
