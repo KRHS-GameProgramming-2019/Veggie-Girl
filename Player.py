@@ -37,3 +37,4 @@ class Player():
             self.speedx = 0
         elif direction == "sright":
             self.speedx = 0
+        
