@@ -1,7 +1,7 @@
 import sys, math, pygame, random
 from Player import *
 from Tilesets import *
-from Sounds import *
+#from Sounds import * # Needs files...also this actually runs a game not just holds a class so you might not need it -Spooner
 from Levels import *
 from Items import *
 from Bosses import *
