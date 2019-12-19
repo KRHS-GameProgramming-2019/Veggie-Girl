@@ -19,8 +19,18 @@ class Player():
         self.right = False
         self.walkCount = 0
         self.maxSpeed = maxSpeed
+        self.speed = [self.speedx, self.speedy] = [0,0] #inline creation and assignment of speed, speedx
+    
     def move(self):
-        pass
+        # You don't have any code in here! 
+        # Inserting default code from ball demo.
+        
+        self.speed = [self.speedx, self.speedy]
+        self.rect = self.rect.move(self.speed)
+    
+    def update(self):
+        # default udate function from ball demo
+        self.move()
     
     def go(self, direction):
         if direction == "left":
