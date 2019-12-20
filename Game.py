@@ -17,9 +17,10 @@ pygame.display.set_caption("Veggie Girl")
 
 clock = pygame.time.Clock()
 
-veggie = Player([5, 425])
+veggie = Player([5, 845])
 run = True
 while run:
+   
     clock.tick(27)
     for event in pygame.event.get():
         if event.type == pygame.QUIT: #added '.type. to the event check so it actually quits -CS
