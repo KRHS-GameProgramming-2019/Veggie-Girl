@@ -9,6 +9,8 @@ from SaltSpike import *
 from Steak import *
 
 pygame.init()
+pygame.mixer.init()
+pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
 
 screenLength = 1000
 screenWidth = 900
@@ -19,6 +21,8 @@ clock = pygame.time.Clock()
 
 veggie = Player([5, 845])
 run = True
+pygame.mixer.music.play(loops=-1, start=0.0)
+
 while run:
    
     clock.tick(27)
