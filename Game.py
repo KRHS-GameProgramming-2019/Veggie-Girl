@@ -32,7 +32,7 @@ while run:
                 veggie.go("right")
                 
             if event.key == pygame.K_SPACE: #just picking sonething, feel free to change -CS
-                veggie.jump()
+                veggie.jump() # I wrote a special funtion for this, but there is no reason it couldn't be handled by the veggie.go() function.
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 veggie.go("sleft")
