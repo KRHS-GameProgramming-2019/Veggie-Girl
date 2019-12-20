@@ -10,7 +10,6 @@ class Player():
         self.maxFrame = len(self.images)-1
         self.image = self.images[self.frame]
         self.rect = self.image.get_rect(bottomleft = pos)
-        #self.vel = 5 #redudnant variable? -CS
         self.isJump = False
         self.jumpCount = 10
         self.left = False
@@ -18,7 +17,8 @@ class Player():
         self.walkCount = 0
         self.maxSpeed = 5 #set max speed to number, not golbal variable -CS
         self.speed = [self.speedx, self.speedy] = [0,0] #inline creation and assignment of speed, speedx -CS
-        
+        self.animationTimer = 0 #from balldemo
+        self.animationTimerMax = 60/10 #from balldemo
         self.floor = self.rect.bottom # I need something to keep me from falling once I jump. This will go away (I think?) once you have blocks
         
         self.gravity = 1 #Gravity for basic kinematic physics model, can be tuned for feel -CS
@@ -29,14 +29,23 @@ class Player():
         
         self.speed = [self.speedx, self.speedy]
         self.rect = self.rect.move(self.speed)
+        
+    def animate(self):
+        if self.animationTimer >= self.animationTimerMax:
+            self.animationTimer = 0
+            if self.frame >= self.maxFrame:
+                self.frame = 0
+            else:
+                self.frame += 1
+            self.image = self.images[self.frame]
     
     def update(self):
-        # default update function from ball demo -CS
-        self.move()
         
-        # how I'd do a jump, at least the basic -CS
-        if self.isJump: #Are we jumping? 
-            if self.rect.bottom <= self.floor: #Have we hit the floor?
+        self.move()
+        self.animate()
+        
+        if self.isJump:
+            if self.rect.bottom <= self.floor:
                 self.speedy += self.gravity #Add gavity to the speed each round. Oddly adding a positve gavity slows you down going up since positve y is down. Each round the self.speedy gets less negative until it hits zero then it goes positive at an increasing rate until you hit the ground. This is based on basic projectile motion kinematics, but it actually reflects how the world works.
             else: #We've hit/passed through the floor
                 self.isJump = False #Stop jumping

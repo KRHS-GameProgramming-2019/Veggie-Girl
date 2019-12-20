@@ -51,8 +51,5 @@ while run:
     pygame.display.flip()
     
     
-sys.exit() #Make sure we get a clean program exit no matter what platfrom we are on. -CS
-
-    
-
+sys.exit()
 pygame.quit()
