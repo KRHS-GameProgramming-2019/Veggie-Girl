@@ -22,7 +22,7 @@ run = True
 while run:
     clock.tick(27)
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: #added '.type. to the event check so it actually quits
+        if event.type == pygame.QUIT: #added '.type. to the event check so it actually quits -CS
             run = False
             
         elif event.type == pygame.KEYDOWN:
@@ -30,20 +30,23 @@ while run:
                 veggie.go("left")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("right")
+                
+            if event.key == pygame.K_SPACE: #just picking sonething, feel free to change -CS
+                veggie.jump()
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 veggie.go("sleft")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("sright")
                 
-    veggie.update() # do all the stuff the veggie needs to do on a turn
+    veggie.update() # do all the stuff the veggie needs to do on a turn -CS
     
     win.fill((0, 0, 0))
     win.blit(veggie.image, veggie.rect)
     pygame.display.flip()
     
     
-sys.exit() #Make sure we get a clean program exit no matter what platfrom we are on.
+sys.exit() #Make sure we get a clean program exit no matter what platfrom we are on. -CS
 
     
 
