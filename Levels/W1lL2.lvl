@@ -14,7 +14,6 @@
 #                                      #
 #                                      #
 #                                      #
-#            @                         #
 #                                      #
 #                                      #
 #                                      #
@@ -25,14 +24,16 @@
 #                                      #
 #                                      #
 #                                      #
-#                                M     #
-#                              FFFFFFFF#
+#                                      #
+#                                      #
+#                                      #
 #                                      E
 #                                      E
-#                                      E
+#     ^^^          ^^^        ^        E
 #GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG#
 #DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD#
 #DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD#
 ########################################
 
 
+ 
