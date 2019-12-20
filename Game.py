@@ -10,7 +10,11 @@ from Steak import *
 
 pygame.init()
 pygame.mixer.init()
-pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
+songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
+         "
+]
+
+pygame.mixer.music.load(songs[0])
 
 screenLength = 1000
 screenWidth = 900
@@ -22,6 +26,7 @@ clock = pygame.time.Clock()
 veggie = Player([5, 845])
 run = True
 pygame.mixer.music.play(loops=-1, start=0.0)
+isPlaying = True
 
 while run:
    
@@ -38,6 +43,16 @@ while run:
                 
             if event.key == pygame.K_SPACE: #just picking sonething, feel free to change -CS
                 veggie.jump() # I wrote a special funtion for this, but there is no reason it couldn't be handled by the veggie.go() function.
+                
+            if event.key == pygame.K_m:
+                if isPlaying:
+                    isPlaying = False
+                    pygame.mixer.music.pause()
+                else:
+                    isPlaying = True
+                    pygame.mixer.music.unpause()
+                
+                
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 veggie.go("sleft")
