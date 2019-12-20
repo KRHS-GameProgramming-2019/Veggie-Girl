@@ -11,7 +11,7 @@ from Steak import *
 pygame.init()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
-         "
+         
 ]
 
 pygame.mixer.music.load(songs[0])
