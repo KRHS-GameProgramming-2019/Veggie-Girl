@@ -1,7 +1,7 @@
 import sys, math, pygame, random
 from Player import *
 from Tilesets import *
-from Sounds import *
+#from Sounds import * # Needs files...also this actually runs a game not just holds a class so you might not need it -Spooner
 from Levels import *
 from Items import *
 from Bosses import *
@@ -17,12 +17,13 @@ pygame.display.set_caption("Veggie Girl")
 
 clock = pygame.time.Clock()
 
-veggie = Player([5, 425])
+veggie = Player([5, 845])
 run = True
 while run:
+   
     clock.tick(27)
     for event in pygame.event.get():
-        if event == pygame.QUIT:
+        if event.type == pygame.QUIT: #added '.type. to the event check so it actually quits -CS
             run = False
             
         elif event.type == pygame.KEYDOWN:
@@ -30,18 +31,23 @@ while run:
                 veggie.go("left")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("right")
+                
+            if event.key == pygame.K_SPACE: #just picking sonething, feel free to change -CS
+                veggie.jump() # I wrote a special funtion for this, but there is no reason it couldn't be handled by the veggie.go() function.
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_a or event.key == pygame.K_LEFT:
                 veggie.go("sleft")
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("sright")
                 
+    veggie.update() # do all the stuff the veggie needs to do on a turn -CS
+    
     win.fill((0, 0, 0))
     win.blit(veggie.image, veggie.rect)
     pygame.display.flip()
     
     
-
+sys.exit() #Make sure we get a clean program exit no matter what platfrom we are on. -CS
 
     
 
