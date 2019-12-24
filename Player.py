@@ -15,18 +15,14 @@ class Player():
         self.left = False
         self.right = False
         self.walkCount = 0
-        self.maxSpeed = 5 #set max speed to number, not golbal variable -CS
-        self.speed = [self.speedx, self.speedy] = [0,0] #inline creation and assignment of speed, speedx -CS
-        self.animationTimer = 0 #from balldemo
-        self.animationTimerMax = 60/10 #from balldemo
+        self.maxSpeed = 5 
+        self.speed = [self.speedx, self.speedy] = [0,0] 
+        self.animationTimer = 0 
+        self.animationTimerMax = 60/10 
         self.floor = self.rect.bottom # I need something to keep me from falling once I jump. This will go away (I think?) once you have blocks
-        
         self.gravity = 1 #Gravity for basic kinematic physics model, can be tuned for feel -CS
     
     def move(self):
-        # You don't have any code in here! 
-        # Inserting default code from ball demo. -CS
-        
         self.speed = [self.speedx, self.speedy]
         self.rect = self.rect.move(self.speed)
         

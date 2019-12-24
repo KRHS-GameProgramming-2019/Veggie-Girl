@@ -17,7 +17,7 @@ pygame.display.set_caption('Show Text')
  
 font = pygame.font.Font('freesansbold.ttf', 32) 
  
-text = font.render('CLICK TO PLAY', True, black) 
+text = font.render("Veggie Girl", True, black) 
   
 textRect = text.get_rect()  
   
