@@ -59,7 +59,7 @@ while run:
                 veggie.go("sright")
                 
     veggie.update() 
-    
+
     win.fill((0, 0, 0))
     win.blit(veggie.image, veggie.rect)
     pygame.display.flip()
