@@ -34,6 +34,9 @@ class Player():
             else:
                 self.frame += 1
             self.image = self.images[self.frame]
+        else:
+            self.animationTimer += 1
+        
     
     def update(self):
         
@@ -58,14 +61,24 @@ class Player():
             self.speedx = -self.maxSpeed
             self.images = self.walkLeftImages
             self.maxFrame = len(self.images)-1
+            self.animationTimer = self.animationTimerMax
             self.frame = 0
         elif direction == "right":
             self.speedx = self.maxSpeed
             self.images = self.walkRightImages
             self.maxFrame = len(self.images)-1
+            self.animationTimer = self.animationTimerMax
             self.frame = 0
         elif direction == "sleft":
             self.speedx = 0
+            self.images = self.standImages
+            self.maxFrame = len(self.images)-1
+            self.animationTimer = self.animationTimerMax
+            self.frame = 0
         elif direction == "sright":
             self.speedx = 0
+            self.images = self.standImages
+            self.maxFrame = len(self.images)-1
+            self.animationTimer = self.animationTimerMax
+            self.frame = 0
         
