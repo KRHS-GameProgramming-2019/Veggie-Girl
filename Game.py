@@ -11,10 +11,11 @@ from Steak import *
 pygame.init()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
-         "
+         "Sounds/772055_Aeolia.ogg",
 ]
-
-pygame.mixer.music.load(songs[0])
+songNum = 0
+maxSongNum = len(songs)-1
+pygame.mixer.music.load(songs[songNum])
 
 screenLength = 1000
 screenWidth = 900
@@ -51,6 +52,17 @@ while run:
                 else:
                     isPlaying = True
                     pygame.mixer.music.unpause()
+                    
+            if event.key == pygame.K_1:
+                if isPlaying:
+                    if songNum >= maxSongNum:
+                        songNum = 0
+                    else:
+                        songNum += 1
+                    pygame.mixer.music.stop()
+                    pygame.mixer.music.load(songs[songNum])
+                    pygame.mixer.music.play(loops=-1, start=0.0)
+                    isPlaying = True
                 
                 
         elif event.type == pygame.KEYUP:
