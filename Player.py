@@ -81,4 +81,17 @@ class Player():
             self.maxFrame = len(self.images)-1
             self.animationTimer = self.animationTimerMax
             self.frame = 0
+    
+    def wallCollide(self, size):
+        width = size[0]
+        height = size[1]
+        if self.rect.right > width:
+            self.speedx = -self.speedx
+            self.move()
+            self.speedx = 0
+        if self.rect.left < 0:
+            self.speedx = -self.speedx
+            self.move()
+            self.speedx = 0
+
         
