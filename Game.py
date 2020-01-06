@@ -11,6 +11,12 @@ pygame.init()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/772055_Aeolia.ogg",
+         "Sounds/638233_Boss-Battle.ogg",
+         "Sounds/895672_sum--Twilight-Party-House.ogg",
+         "Sounds/753446_Creo---Showdown.ogg",
+         "Sounds/514911_Final-Boss.ogg",
+         "Sounds/71108_newgrounds_bosa_h.ogg",
+         "Sounds/894845_Im-Gay-Intro.ogg",
 ]
 songNum = 0
 maxSongNum = len(songs)-1
