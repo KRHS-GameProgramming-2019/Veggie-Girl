@@ -1,7 +1,6 @@
 import sys, math, pygame, random
 from Player import *
 from Tilesets import *
-#from Sounds import * # Needs files...also this actually runs a game not just holds a class so you might not need it -Spooner
 from Levels import *
 from Items import *
 from Bosses import *
@@ -11,19 +10,47 @@ from Steak import *
 pygame.init()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
-         "
+         "Sounds/772055_Aeolia.ogg",
+         "Sounds/638233_Boss-Battle.ogg",
+         "Sounds/895672_sum--Twilight-Party-House.ogg",
+         "Sounds/753446_Creo---Showdown.ogg",
+         "Sounds/514911_Final-Boss.ogg",
+         "Sounds/71108_newgrounds_bosa_h.ogg",
+         "Sounds/894845_Im-Gay-Intro.ogg",
 ]
+songNum = 0
+maxSongNum = len(songs)-1
+pygame.mixer.music.load(songs[songNum])
 
-pygame.mixer.music.load(songs[0])
-
-screenLength = 1000
-screenWidth = 900
+screenLength = 900
+screenWidth = 800
 win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
+screens = "menu"
+while True:
+	image = pygame.image.load("Images/Backgrounds/Temporarytitle.png")
+	imgRect = image.get_rect()
+	while screens == "menu":
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				sys.exit();
+			elif event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_RETURN:
+					screens = "game"
+				elif event.key == pygame.K_o:
+					screens = "options"
+				elif event.key == pygame.K_ESCAPE:
+					sys.exit();
+		
+		
+		win.blit(image, imgRect)
+		pygame.display.flip()
+		
+		
 clock = pygame.time.Clock()
 
-veggie = Player([5, 845])
+veggie = Player([5, 785])
 run = True
 pygame.mixer.music.play(loops=-1, start=0.0)
 isPlaying = True
@@ -32,7 +59,7 @@ while run:
    
     clock.tick(27)
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: #added '.type. to the event check so it actually quits -CS
+        if event.type == pygame.QUIT: 
             run = False
             
         elif event.type == pygame.KEYDOWN:
@@ -41,8 +68,8 @@ while run:
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("right")
                 
-            if event.key == pygame.K_SPACE: #just picking sonething, feel free to change -CS
-                veggie.jump() # I wrote a special funtion for this, but there is no reason it couldn't be handled by the veggie.go() function.
+            if event.key == pygame.K_SPACE: 
+                veggie.jump() 
                 
             if event.key == pygame.K_m:
                 if isPlaying:
@@ -51,6 +78,17 @@ while run:
                 else:
                     isPlaying = True
                     pygame.mixer.music.unpause()
+                    
+            if event.key == pygame.K_1:
+                if isPlaying:
+                    if songNum >= maxSongNum:
+                        songNum = 0
+                    else:
+                        songNum += 1
+                    pygame.mixer.music.stop()
+                    pygame.mixer.music.load(songs[songNum])
+                    pygame.mixer.music.play(loops=-1, start=0.0)
+                    isPlaying = True
                 
                 
         elif event.type == pygame.KEYUP:
@@ -59,8 +97,8 @@ while run:
             elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 veggie.go("sright")
                 
-    veggie.update() # do all the stuff the veggie needs to do on a turn -CS
-    
+    veggie.update() 
+
     win.fill((0, 0, 0))
     win.blit(veggie.image, veggie.rect)
     pygame.display.flip()
