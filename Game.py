@@ -11,19 +11,28 @@ pygame.init()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/772055_Aeolia.ogg",
+         "Sounds/638233_Boss-Battle.ogg",
+         "Sounds/895672_sum--Twilight-Party-House.ogg",
+         "Sounds/753446_Creo---Showdown.ogg",
+         "Sounds/514911_Final-Boss.ogg",
+         "Sounds/71108_newgrounds_bosa_h.ogg",
+         "Sounds/894845_Im-Gay-Intro.ogg",
 ]
 songNum = 0
 maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 
-screenLength = 1000
-screenWidth = 900
+screenLength = 900
+screenWidth = 800
 win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
+
+		
+		
 clock = pygame.time.Clock()
 
-veggie = Player([5, 845])
+veggie = Player([5, 785])
 run = True
 pygame.mixer.music.play(loops=-1, start=0.0)
 isPlaying = True
