@@ -29,7 +29,7 @@ pygame.display.set_caption("Veggie Girl")
 
 screens = "menu"
 while True:
-    image = pygame.image.load("Images/Backgrounds/Temporarytitle.png")
+    image = pygame.image.load("Images/Backgrounds/titlescreen.png")
     imgRect = image.get_rect()
     while screens == "menu":
         for event in pygame.event.get():
