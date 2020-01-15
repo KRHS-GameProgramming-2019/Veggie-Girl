@@ -23,14 +23,31 @@ songNum = 0
 maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 
-screenLength = 1000
-screenWidth = 900
+screenLength = 900
+screenWidth = 800
 win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
+screens = "menu"
+while True:
+    image = pygame.image.load("Images/Backgrounds/titlescreen.png")
+    imgRect = image.get_rect()
+    while screens == "menu":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    screens = "game"
+                elif event.key == pygame.K_ESCAPE:
+                    sys.exit();
+        win.blit(image, imgRect)
+        pygame.display.flip()
+		
+		
 clock = pygame.time.Clock()
 
-veggie = Player([5, 845])
+veggie = Player([5, 785])
 run = True
 pygame.mixer.music.play(loops=-1, start=0.0)
 isPlaying = True
