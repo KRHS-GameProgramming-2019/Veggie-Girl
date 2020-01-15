@@ -17,6 +17,7 @@ songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/514911_Final-Boss.ogg",
          "Sounds/71108_newgrounds_bosa_h.ogg",
          "Sounds/894845_Im-Gay-Intro.ogg",
+         "Sounds/DeathSound.ogg",
 ]
 songNum = 0
 maxSongNum = len(songs)-1
