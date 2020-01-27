@@ -70,6 +70,15 @@ while True:
                     veggie.go("left")
                 elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     veggie.go("right")
+                elif event.key == pygame.K_ESCAPE:
+                    screens = "pause"
+                    if screens == "pause":
+                        image = pygame.image.load("Images/Backgrounds/PauseScreen.png")
+                        imgRect = image.get_rect()
+                        if event.key == pygame.K_l:
+                            sys.exit();
+                        elif event.key == pygame.K_ESCAPE:
+                            screens == "game"
                     
                 if event.key == pygame.K_SPACE or event.key == pygame.K_UP: 
                     veggie.jump() 
