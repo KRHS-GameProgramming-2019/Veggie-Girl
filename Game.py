@@ -24,6 +24,8 @@ songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
 songNum = 0
 maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
+pygame.mixer.music.set_volume(0.4)
+
 
 screenLength = 900
 screenWidth = 800
@@ -35,8 +37,13 @@ screens = "menu"
 while True:
     #--------------------Menu-----------------
     #------------Menu Setup------------
+    pygame.mixer.init()
     image = pygame.image.load("Images/Backgrounds/titlescreen.png")
     imgRect = image.get_rect()
+    pygame.mixer.music.load("Sounds/894845_Im-Gay-Intro.ogg")
+    pygame.mixer.music.play(loops=-1, start=0.0)
+
+
     #------------Menu Loop-----------
     while screens == "menu":
         for event in pygame.event.get():
@@ -49,6 +56,8 @@ while True:
                     sys.exit();
         win.blit(image, imgRect)
         pygame.display.flip()
+
+        
                 
     #--------------------Game-----------------
     #--------------Game Setup-------------
@@ -59,6 +68,10 @@ while True:
 
     image = pygame.image.load("Images/Backgrounds/randombg.png")
     imgRect = image.get_rect()
+    pygame.mixer.init()
+    pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
+    
+    pygame.mixer.music.play(loops=-1, start=0.0)
     #--------------Game Loop-------------    
     while screens == "game":
         for event in pygame.event.get():
