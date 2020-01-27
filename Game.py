@@ -84,7 +84,7 @@ while True:
                 elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     veggie.go("right")
                     
-                if event.key == pygame.K_SPACE: 
+                if event.key == pygame.K_SPACE or event.key == pygame.K_UP: 
                     veggie.jump() 
                     
                 if event.key == pygame.K_m:
