@@ -7,7 +7,9 @@ from Bosses import *
 from SaltSpike import *
 from Steak import *
 
+#--------------------Setup---------------------
 pygame.init()
+clock = pygame.time.Clock()
 pygame.mixer.init()
 songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/772055_Aeolia.ogg",
@@ -17,13 +19,11 @@ songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/514911_Final-Boss.ogg",
          "Sounds/71108_newgrounds_bosa_h.ogg",
          "Sounds/894845_Im-Gay-Intro.ogg",
-         "Sounds/DeathSound.ogg",
+         "Sounds/DeathSound.ogg"
 ]
 songNum = 0
 maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
-pygame.mixer.music.play(loops=-1, start=0.0)
-isPlaying = True
 
 screenLength = 900
 screenWidth = 800
@@ -31,11 +31,13 @@ win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
 screens = "menu"
+#-----------------Game Loop---------------------
 while True:
+    #--------------------Menu-----------------
+    #------------Menu Setup------------
     image = pygame.image.load("Images/Backgrounds/titlescreen.png")
     imgRect = image.get_rect()
-    pygame.mixer.music.play(loops=-1, start=0.0)
-    isPlaying = True
+    #------------Menu Loop-----------
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -43,6 +45,34 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
+                elif event.key == pygame.K_ESCAPE:
+                    sys.exit();
+        win.blit(image, imgRect)
+        pygame.display.flip()
+                
+    #--------------------Game-----------------
+    #--------------Game Setup-------------
+    veggie = Player([5, 785])
+
+    pygame.mixer.music.play(loops=-1, start=0.0)
+    isPlaying = True
+
+    image = pygame.image.load("Images/Backgrounds/randombg.png")
+    imgRect = image.get_rect()
+    #--------------Game Loop-------------    
+    while screens == "game":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: 
+                sys.exit()
+                
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    veggie.go("left")
+                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    veggie.go("right")
+                    
+                if event.key == pygame.K_SPACE: 
+                    veggie.jump() 
                     
                 if event.key == pygame.K_m:
                     if isPlaying:
@@ -51,68 +81,27 @@ while True:
                     else:
                         isPlaying = True
                         pygame.mixer.music.unpause()
-                    
+                        
                 if event.key == pygame.K_1:
                     if isPlaying:
-                            songNum = 7
-                        
-                elif event.key == pygame.K_ESCAPE:
-                    sys.exit();
-        win.blit(image, imgRect)
-        pygame.display.flip()
-
-run = True
-pygame.mixer.music.play(loops=-1, start=0.0)
-isPlaying = True
-
-while run:
-   
-    clock.tick(27)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: 
-            run = False
-            
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                veggie.go("left")
-            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                veggie.go("right")
-                
-            if event.key == pygame.K_SPACE: 
-                veggie.jump() 
-                
-            if event.key == pygame.K_m:
-                if isPlaying:
-                    isPlaying = False
-                    pygame.mixer.music.pause()
-                else:
-                    isPlaying = True
-                    pygame.mixer.music.unpause()
+                        if songNum >= maxSongNum:
+                            songNum = 0
+                        else:
+                            songNum += 1
+                        pygame.mixer.music.stop()
+                        pygame.mixer.music.load(songs[songNum])
+                        pygame.mixer.music.play(loops=-1, start=0.0)
+                        isPlaying = True
                     
-            if event.key == pygame.K_1:
-                if isPlaying:
-                    if songNum >= maxSongNum:
-                        songNum = 0
-                    else:
-                        songNum += 1
-                    pygame.mixer.music.stop()
-                    pygame.mixer.music.load(songs[songNum])
-                    pygame.mixer.music.play(loops=-1, start=0.0)
-                    isPlaying = True
-                
-                
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                veggie.go("sleft")
-            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                veggie.go("sright")
-                
-    veggie.update() 
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    veggie.go("sleft")
+                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    veggie.go("sright")
+                    
+        veggie.update() 
 
-    win.fill((0, 0, 0))
-    win.blit(veggie.image, veggie.rect)
-    pygame.display.flip()
-    
-    
-sys.exit()
-pygame.quit()
+        win.blit(image, imgRect)
+        win.blit(veggie.image, veggie.rect)
+        pygame.display.flip()
+        clock.tick(60)
