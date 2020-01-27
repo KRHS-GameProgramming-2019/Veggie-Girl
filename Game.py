@@ -7,6 +7,7 @@ from Bosses import *
 from SaltSpike import *
 from Steak import *
 
+#--------------------Setup---------------------
 pygame.init()
 clock = pygame.time.Clock()
 pygame.mixer.init()
@@ -30,9 +31,13 @@ win = pygame.display.set_mode((screenLength, screenWidth))
 pygame.display.set_caption("Veggie Girl")
 
 screens = "menu"
+#-----------------Game Loop---------------------
 while True:
+    #--------------------Menu-----------------
+    #------------Menu Setup------------
     image = pygame.image.load("Images/Backgrounds/titlescreen.png")
     imgRect = image.get_rect()
+    #------------Menu Loop-----------
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -45,6 +50,8 @@ while True:
         win.blit(image, imgRect)
         pygame.display.flip()
                 
+    #--------------------Game-----------------
+    #--------------Game Setup-------------
     veggie = Player([5, 785])
 
     pygame.mixer.music.play(loops=-1, start=0.0)
@@ -52,7 +59,7 @@ while True:
 
     image = pygame.image.load("Images/Backgrounds/randombg.png")
     imgRect = image.get_rect()
-
+    #--------------Game Loop-------------    
     while screens == "game":
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
