@@ -16,6 +16,7 @@ songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/638233_Boss-Battle.ogg",
          "Sounds/895672_sum--Twilight-Party-House.ogg",
          "Sounds/753446_Creo---Showdown.ogg",
+         "Sounds/330448_Waluigi_Loses_It.ogg",
          "Sounds/514911_Final-Boss.ogg",
          "Sounds/71108_newgrounds_bosa_h.ogg",
          "Sounds/894845_Im-Gay-Intro.ogg",
@@ -54,17 +55,32 @@ while True:
                     screens = "game"
                 elif event.key == pygame.K_w:
                     screens = "secret"
-                    if screens == "secret":
-                        image = pygame.image.load("Images/Backgrounds/walScreen.png")
-                        imgRect = image.get_rect()
-                        pygame.mixer.music.load("Sounds/894845_Im-Gay-Intro.ogg")
-                        pygame.mixer.music.play(loops=-1, start=0.0)
+                    
+                        
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
         win.blit(image, imgRect)
         pygame.display.flip()
-
-        
+    
+    image = pygame.image.load("Images/Backgrounds/walScreen.png")
+    imgRect = image.get_rect()
+    pygame.mixer.music.stop()
+    pygame.mixer.music.load("Sounds/330448_Waluigi_Loses_It.ogg")
+    pygame.mixer.music.play(loops=-1, start=0.0)   
+    while screens == "secret":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit();
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    screens = "menu"
+                    
+                        
+                elif event.key == pygame.K_ESCAPE:
+                    sys.exit();
+        win.blit(image, imgRect)
+        pygame.display.flip()               
+                        
                 
     #--------------------Game-----------------
     #--------------Game Setup-------------
