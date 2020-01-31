@@ -52,6 +52,13 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
+                elif event.key == pygame.K_w:
+                    screens = "secret"
+                    if screens == "secret":
+                        image = pygame.image.load("Images/Backgrounds/walScreen.png")
+                        imgRect = image.get_rect()
+                        pygame.mixer.music.load("Sounds/894845_Im-Gay-Intro.ogg")
+                        pygame.mixer.music.play(loops=-1, start=0.0)
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
         win.blit(image, imgRect)
