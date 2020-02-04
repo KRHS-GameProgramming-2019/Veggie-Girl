@@ -106,7 +106,7 @@ while True:
                     veggie.go("left")
                 elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     veggie.go("right")
-                elif event.key == pygame.K_SPACE or event.key == pygame.K_UP: 
+                elif event.key == pygame.K_SPACE or event.key == pygame.K_UP or event.key == pygame.K_w: 
                     veggie.jump() 
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();    
