@@ -113,21 +113,7 @@ while True:
                 elif event.key == pygame.K_SPACE or event.key == pygame.K_UP:
                     veggie.jump()
                 elif event.key == pygame.K_ESCAPE:
-                    screens = "pause"
-
-        
-            if screens == "pause":
-                image = pygame.image.load("Images/Backgrounds/PauseScreen.png")
-                imgRect = image.get_rect()
-                pygame.mixer.music.stop()
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        sys.exit();
-                    elif event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_ESCAPE:
-                            screens = "game"
-                        elif event.type == pygame.K_l:
-                            sys.exit();
+                    sys.exit();
                             
                             
             if event.key == pygame.K_m:
