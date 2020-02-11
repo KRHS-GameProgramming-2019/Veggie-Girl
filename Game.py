@@ -142,6 +142,7 @@ while True:
                     veggie.go("sright")
 
         veggie.update()
+        veggie.wallCollide()
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
