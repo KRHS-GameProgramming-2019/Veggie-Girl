@@ -116,30 +116,30 @@ while True:
                     sys.exit();
                             
                             
-            if event.key == pygame.K_m:
-                if isPlaying:
-                    isPlaying = False
-                    pygame.mixer.music.pause()
-                else:
-                    isPlaying = True
-                    pygame.mixer.music.unpause()
-
-            if event.key == pygame.K_1:
-                if isPlaying:
-                    if songNum >= maxSongNum:
-                        songNum = 0
+                if event.key == pygame.K_m:
+                    if isPlaying:
+                        isPlaying = False
+                        pygame.mixer.music.pause()
                     else:
-                        songNum += 1
-                    pygame.mixer.music.stop()
-                    pygame.mixer.music.load(songs[songNum])
-                    pygame.mixer.music.play(loops=-1, start=0.0)
-                    isPlaying = True
+                        isPlaying = True
+                        pygame.mixer.music.unpause()
 
-                elif event.type == pygame.KEYUP:
-                    if event.key == pygame.K_a or event.key == pygame.K_LEFT:
-                        veggie.go("sleft")
-                    elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
-                        veggie.go("sright")
+                if event.key == pygame.K_1:
+                    if isPlaying:
+                        if songNum >= maxSongNum:
+                            songNum = 0
+                        else:
+                            songNum += 1
+                        pygame.mixer.music.stop()
+                        pygame.mixer.music.load(songs[songNum])
+                        pygame.mixer.music.play(loops=-1, start=0.0)
+                        isPlaying = True
+
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    veggie.go("sleft")
+                elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    veggie.go("sright")
 
         veggie.update()
 
