@@ -94,7 +94,7 @@ while True:
     pygame.mixer.music.play(loops=-1, start=0.0)
     isPlaying = True
 
-    image = pygame.image.load("Images/Backgrounds/randombg.png")
+    image = pygame.image.load("Images/Backgrounds/GrassLVL.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
