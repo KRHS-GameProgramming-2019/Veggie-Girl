@@ -38,19 +38,7 @@ class Player():
             self.animationTimer += 1
         
     
-    def update(self):
-        
-        self.move()
-        self.animate()
-        
-        if self.isJump:
-            if self.rect.bottom <= self.floor:
-                self.speedy += self.gravity
-            else: 
-                self.isJump = False 
-                self.speedy = 0 
-                self.rect.bottom = self.floor 
-    
+
     def jump(self): 
         if not self.isJump:
             self.isJump = True 
@@ -94,4 +82,17 @@ class Player():
             self.move()
             self.speedx = 0
 
+    def update(self, size):
+        
+        self.move()
+        self.animate()
+        self.wallCollide(size)
+        
+        if self.isJump:
+            if self.rect.bottom <= self.floor:
+                self.speedy += self.gravity
+            else: 
+                self.isJump = False 
+                self.speedy = 0 
+                self.rect.bottom = self.floor 
         

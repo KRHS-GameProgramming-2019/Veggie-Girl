@@ -30,7 +30,8 @@ pygame.mixer.music.set_volume(0.4)
 
 screenLength = 900
 screenWidth = 800
-win = pygame.display.set_mode((screenLength, screenWidth))
+screenSize = [screenLength, screenWidth]
+win = pygame.display.set_mode(screenSize)
 pygame.display.set_caption("Veggie Girl")
 
 screens = "menu"
@@ -93,7 +94,7 @@ while True:
     pygame.mixer.music.play(loops=-1, start=0.0)
     isPlaying = True
 
-    image = pygame.image.load("Images/Backgrounds/randombg.png")
+    image = pygame.image.load("Images/Backgrounds/GrassLVL.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
     pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
@@ -141,8 +142,8 @@ while True:
                 elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                     veggie.go("sright")
 
-        veggie.update()
-        veggie.wallCollide()
+        veggie.update(screenSize)
+
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
