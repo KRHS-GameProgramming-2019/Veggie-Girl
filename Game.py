@@ -6,6 +6,7 @@ from Items import *
 from Bosses import *
 from SaltSpike import *
 from Steak import *
+from LevelLoader import *
 
 #--------------------Setup---------------------
 pygame.init()
