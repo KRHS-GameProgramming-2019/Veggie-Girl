@@ -5,7 +5,7 @@ def loadLevel (lev):
     lines = f.readlines()
     f.close()
     
-    size = 50
+    size = 25
     offset = size/2
     tiles = []
     
