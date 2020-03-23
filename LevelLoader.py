@@ -1,4 +1,4 @@
-import game, sys, math
+import pygame, sys, math
 
 def loadLevel (lev):
     f = open(lev, "r")

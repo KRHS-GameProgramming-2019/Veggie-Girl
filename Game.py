@@ -7,6 +7,7 @@ from Bosses import *
 from SaltSpike import *
 from Steak import *
 from LevelLoader import *
+from Wall import *
 
 #--------------------Setup---------------------
 pygame.init()
@@ -28,7 +29,8 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
-
+walls = [VineWall([11,11]),
+         VineWall([32,10])]
 
 screenLength = 900
 screenWidth = 800
@@ -149,5 +151,7 @@ while True:
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
+        for wall in walls:
+            win.blit(wall.image,wall.rect)
         pygame.display.flip()
         clock.tick(60)
