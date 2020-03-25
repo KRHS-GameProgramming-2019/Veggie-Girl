@@ -81,7 +81,21 @@ class Player():
             self.speedx = -self.speedx
             self.move()
             self.speedx = 0
-
+            
+            
+    def blockCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            if self.speedx != 0:
+                                self.speedx = -self.speedx
+                                self.move()
+                                self.speedx = 0
+                            return True
+        return False
+        
     def update(self, size):
         
         self.move()

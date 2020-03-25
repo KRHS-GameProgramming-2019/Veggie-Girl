@@ -29,7 +29,7 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
-walls = [VineWall([11,11]),
+walls = [VineWall([100,750]),
          VineWall([32,10])]
 
 screenLength = 900
@@ -147,7 +147,9 @@ while True:
                     veggie.go("sright")
 
         veggie.update(screenSize)
-
+        for wall in walls:
+            if veggie.blockCollide(wall):
+                print (">>>>>>>>>>>>>>>>>Hit Wall")
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
