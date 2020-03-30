@@ -26,6 +26,9 @@ def loadLevel (lev):
                 tiles += [Wall([x*size+offset, y*size+offset])]
                 
     return tiles
+    
+    
+
 
 
 #loadLevel("Levels/W1lL1.lvl")

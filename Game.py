@@ -22,7 +22,8 @@ songs = ["Sounds/631160_Domyeah---Final-Boss.ogg",
          "Sounds/514911_Final-Boss.ogg",
          "Sounds/71108_newgrounds_bosa_h.ogg",
          "Sounds/894845_Im-Gay-Intro.ogg",
-         "Sounds/DeathSound.ogg"
+         "Sounds/DeathSound.ogg",
+         "Sounds/920514_Anything-is-Possible.ogg",
 ]
 songNum = 0
 maxSongNum = len(songs)-1
@@ -101,7 +102,7 @@ while True:
     image = pygame.image.load("Images/Backgrounds/GrassLVL.png")
     imgRect = image.get_rect()
     pygame.mixer.init()
-    pygame.mixer.music.load("Sounds/631160_Domyeah---Final-Boss.ogg")
+    pygame.mixer.music.load("Sounds/920514_Anything-is-Possible.ogg")
 
     pygame.mixer.music.play(loops=-1, start=0.0)
     #--------------Game Loop-------------
