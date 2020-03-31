@@ -30,8 +30,7 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
-walls = [VineWall([100,750]),
-         VineWall([32,10])]
+walls = loadLevel("Levels/W1lL1.lvl")
 
 screenLength = 900
 screenWidth = 800
@@ -94,7 +93,7 @@ while True:
 
     #--------------------Game-----------------
     #--------------Game Setup-------------
-    veggie = Player([5, 785])
+    veggie = Player([50, 785])
 
     pygame.mixer.music.play(loops=-1, start=0.0)
     isPlaying = True

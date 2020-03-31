@@ -5,10 +5,6 @@ def loadLevel (lev):
     lines = f.readlines()
     f.close()
     
-    size = 25
-    offset = size/2
-    tiles = []
-    
     newLines = []
     for line in lines:
         newLine = ""
@@ -19,16 +15,6 @@ def loadLevel (lev):
         
     lines = newLines
     
-    
-    for y, line in enumerate (lines):
-        for x, c in enumerate (line):
-            if c == "#":
-                tiles += [Wall([x*size+offset, y*size+offset])]
-                
-    return tiles
-    
-    
+    print(lines)
 
-
-
-#loadLevel("Levels/W1lL1.lvl")
+loadLevel("Levels/W1lL1.lvl")
