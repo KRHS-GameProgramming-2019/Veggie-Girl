@@ -1,6 +1,7 @@
 import pygame, sys, math
 from Wall import *
 from Ground import *
+from Dirt import *
 
 def loadLevel (lev):
     f = open(lev, "r")
@@ -12,6 +13,7 @@ def loadLevel (lev):
     tiles = []
     walls = []
     grounds = []
+    dirts = []
     
     newLines = []
     for line in lines:
@@ -30,8 +32,10 @@ def loadLevel (lev):
                 walls += [VineWall([x*size+offset, y*size+offset])]
             if c == "G":
                 grounds += [Ground([x*size+offset, y*size+offset])]
+            if c == "D":
+                dirts += [Dirt([x*size+offset, y*size+offset])]
     
-    tiles = [walls, grounds]
+    tiles = [walls, grounds, dirts]
     return tiles
 
 #loadLevel("Levels/W1lL1.lvl")

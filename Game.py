@@ -33,6 +33,7 @@ pygame.mixer.music.set_volume(0.4)
 tiles = loadLevel("Levels/W1lL1.lvl")
 walls = tiles[0]
 grounds = tiles[1]
+dirts = tiles[2]
 
 screenLength = 900
 screenWidth = 800
@@ -155,6 +156,8 @@ while True:
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
+        for dirt in dirts:
+            win.blit(dirt.image,dirt.rect)
         for ground in grounds:
             win.blit(ground.image,ground.rect)
         for wall in walls:
