@@ -30,7 +30,9 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
-walls = loadLevel("Levels/W1lL1.lvl")
+tiles = loadLevel("Levels/W1lL1.lvl")
+walls = tiles[0]
+grounds = tiles[1]
 
 screenLength = 900
 screenWidth = 800
@@ -93,7 +95,7 @@ while True:
 
     #--------------------Game-----------------
     #--------------Game Setup-------------
-    veggie = Player([50, 785])
+    veggie = Player([50, 730])
 
     pygame.mixer.music.play(loops=-1, start=0.0)
     isPlaying = True
@@ -153,6 +155,8 @@ while True:
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
+        for ground in grounds:
+            win.blit(ground.image,ground.rect)
         for wall in walls:
             win.blit(wall.image,wall.rect)
         pygame.display.flip()
