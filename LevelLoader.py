@@ -1,9 +1,14 @@
 import pygame, sys, math
+from Wall import *
 
 def loadLevel (lev):
     f = open(lev, "r")
     lines = f.readlines()
     f.close()
+    
+    size = 25
+    offset = size/2
+    tiles = []
     
     newLines = []
     for line in lines:
@@ -15,6 +20,12 @@ def loadLevel (lev):
         
     lines = newLines
     
-    print(lines)
+    
+    for y, line in enumerate(lines):
+        for x, c in enumerate(line):
+            if c == "#":
+                tiles += [VineWall([x*size+offset, y*size+offset])]
+    
+    return tiles
 
-loadLevel("Levels/W1lL1.lvl")
+#loadLevel("Levels/W1lL1.lvl")
