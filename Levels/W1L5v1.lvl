@@ -6,7 +6,7 @@
 #                                  #
 #         WCCCCCCCCCCCCCCCCCCCCCCCC#
 #         W                        E
-#         W            ^^^    ^^^  E
+#         W   FF       ^^^    ^^^  E
 #         W        FFFFFFFFFFFFFFF #
 #         w        W               #
 #         W        W               #
@@ -22,11 +22,11 @@
 #         W       <W               #
 #         W        W               #
 #         W        W               #
-#         E        W               #
-#         E        W               #
-#         E        W               #
-#         E        W               #
-#GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG#
-#DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD#
-#DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD#
-####################################
+#                  W               #
+#                  W               #
+#                  W               #
+#                  W               #
+#            T                     #
+GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
