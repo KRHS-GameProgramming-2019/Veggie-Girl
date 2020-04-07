@@ -2,6 +2,7 @@ import pygame, sys, math
 from Wall import *
 from Ground import *
 from Dirt import *
+from SaltSpike import *
 
 def loadLevel (lev):
     f = open(lev, "r")
@@ -14,6 +15,7 @@ def loadLevel (lev):
     walls = []
     grounds = []
     dirts = []
+    saltspikes = []
     
     newLines = []
     for line in lines:
@@ -34,8 +36,10 @@ def loadLevel (lev):
                 grounds += [Ground([x*size+offset, y*size+offset])]
             if c == "D":
                 dirts += [Dirt([x*size+offset, y*size+offset])]
+            if c == "^":
+                saltspikes += [SaltSpike([x*size+offset, y*size+offset])]
     
-    tiles = [walls, grounds, dirts]
+    tiles = [walls, grounds, dirts, saltspikes]
     return tiles
 
-#loadLevel("Levels/W1lL1.lvl")
+#loadLevel("Levels/W1lL2.lvl")
