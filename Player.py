@@ -1,4 +1,5 @@
 import pygame, sys, math, random
+from SaltSpike import *
 
 class Player():
     def __init__(self, pos):

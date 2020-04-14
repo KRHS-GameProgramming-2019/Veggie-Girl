@@ -153,7 +153,7 @@ while True:
         veggie.update(screenSize)
         for wall in walls:
             if veggie.blockCollide(wall):
-                print (">>>>>>>>>>>>>>>>>Hit Wall")
+                print (">>>>>>>>>>>>Hit Wall")
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
