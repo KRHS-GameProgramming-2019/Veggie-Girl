@@ -10,7 +10,8 @@ class Player():
         self.frame = 0
         self.maxFrame = len(self.images)-1
         self.image = self.images[self.frame]
-        self.rect = self.image.get_rect(bottomleft = pos)
+        self.rect = self.image.get_rect(midbottom = pos)
+        self.rect = self.rect.move([0, 15])
         self.isJump = False
         self.jumpCount = 10
         self.left = False
@@ -58,6 +59,7 @@ class Player():
             self.maxFrame = len(self.images)-1
             self.animationTimer = self.animationTimerMax
             self.frame = 0
+            print(self.speedx)
         elif direction == "sleft":
             self.speedx = 0
             self.images = self.standImages
@@ -74,17 +76,18 @@ class Player():
     def wallCollide(self, size):
         width = size[0]
         height = size[1]
-        if self.rect.right > width:
-            self.speedx = -self.speedx
-            self.move()
-            self.speedx = 0
-        if self.rect.left < 0:
-            self.speedx = -self.speedx
-            self.move()
-            self.speedx = 0
+        
+        # ~ if self.rect.right > width:
+            # ~ self.speedx = -self.speedx
+            # ~ self.move()
+            # ~ self.speedx = 0
+        # ~ if self.rect.left < 0:
+            # ~ self.speedx = -self.speedx
+            # ~ self.move()
+            # ~ self.speedx = 0
             
             
-    def blockCollide(self, other):
+    def platformCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
@@ -94,6 +97,16 @@ class Player():
                                 self.speedx = -self.speedx
                                 self.move()
                                 self.speedx = 0
+                            return True
+        return False
+        
+    def enemyCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            
                             return True
         return False
         

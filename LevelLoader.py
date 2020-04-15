@@ -16,6 +16,7 @@ def loadLevel (lev):
     grounds = []
     dirts = []
     saltspikes = []
+    playerPos = []
     
     newLines = []
     for line in lines:
@@ -31,15 +32,18 @@ def loadLevel (lev):
     for y, line in enumerate(lines):
         for x, c in enumerate(line):
             if c == "#":
-                walls += [VineWall([x*size+offset, y*size+offset])]
+                tiles += [VineWall([x*size+offset, y*size+offset])]
             if c == "G":
-                grounds += [Ground([x*size+offset, y*size+offset])]
+                tiles += [Ground([x*size+offset, y*size+offset])]
             if c == "D":
-                dirts += [Dirt([x*size+offset, y*size+offset])]
+                tiles += [Dirt([x*size+offset, y*size+offset])]
             if c == "^":
-                saltspikes += [SaltSpike([x*size+offset, y*size+offset])]
+                tiles += [SaltSpike([x*size+offset, y*size+offset])]
     
-    tiles = [walls, grounds, dirts, saltspikes]
-    return tiles
+            if c == "C":
+                playerPos += [x*size+offset, y*size+offset]
+    
+    # ~ tiles = [walls, grounds, dirts, saltspikes, playerPos]
+    return tiles, playerPos
 
 #loadLevel("Levels/W1lL2.lvl")

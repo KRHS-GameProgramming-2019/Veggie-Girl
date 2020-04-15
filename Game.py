@@ -30,11 +30,15 @@ maxSongNum = len(songs)-1
 pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
-tiles = loadLevel("Levels/W1lL2.lvl")
-walls = tiles[0]
-grounds = tiles[1]
-dirts = tiles[2]
-saltspikes = tiles[3]
+
+lev = 2
+world = 1
+
+enemyKinds = ["saltspike"
+             ]
+platformKinds = ["dirt", 
+                "walls", 
+                ]
 
 screenLength = 900
 screenWidth = 800
@@ -97,7 +101,8 @@ while True:
 
     #--------------------Game-----------------
     #--------------Game Setup-------------
-    veggie = Player([50, 730])
+    tiles, pos = loadLevel("Levels/W" + str(world) + "L" + str(lev) + ".lvl")
+    veggie = Player(pos)
 
     pygame.mixer.music.play(loops=-1, start=0.0)
     isPlaying = True
@@ -151,19 +156,23 @@ while True:
                     veggie.go("sright")
 
         veggie.update(screenSize)
-        for wall in walls:
-            if veggie.blockCollide(wall):
-                print (">>>>>>>>>>>>Hit Wall")
+        for wall in tiles:
+            if wall.kind in platformKinds:
+                if veggie.platformCollide(wall):
+                    print (">>>>>>>>>>>>Hit Wall")
+            elif wall.kind in enemyKinds:
+                if veggie.enemyCollide(wall):
+                    veggie = Player(pos)
 
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
-        for saltspike in saltspikes:
-            win.blit(saltspike.image,saltspike.rect)
-        for dirt in dirts:
-            win.blit(dirt.image,dirt.rect)
-        for ground in grounds:
-            win.blit(ground.image,ground.rect)
-        for wall in walls:
+        # ~ for saltspike in saltspikes:
+            # ~ win.blit(saltspike.image,saltspike.rect)
+        # ~ for dirt in dirts:
+            # ~ win.blit(dirt.image,dirt.rect)
+        # ~ for ground in grounds:
+            # ~ win.blit(ground.image,ground.rect)
+        for wall in tiles:
             win.blit(wall.image,wall.rect)
         pygame.display.flip()
         clock.tick(60)
