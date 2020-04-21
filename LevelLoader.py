@@ -38,7 +38,7 @@ def loadLevel (lev):
             if c == "D":
                 tiles += [Dirt([x*size+offset, y*size+offset])]
             if c == "^":
-                tiles += [SaltSpike([x*size+offset, y*size+offset])]
+                tiles += [SaltSpike([x*size+offset, y*size+offset + 4])]
     
             if c == "C":
                 playerPos += [x*size+offset, y*size+offset]

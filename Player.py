@@ -44,7 +44,7 @@ class Player():
     def jump(self): 
         if not self.isJump:
             self.isJump = True 
-            self.speedy = -2 * self.maxSpeed; 
+            self.speedy = -2.5 * self.maxSpeed; 
         
     def go(self, direction):
         if direction == "left":
