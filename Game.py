@@ -113,8 +113,14 @@ while True:
     pygame.mixer.music.load("Sounds/920514_Anything-is-Possible.ogg")
 
     pygame.mixer.music.play(loops=-1, start=0.0)
+    
+    prevlev = lev
     #--------------Game Loop-------------
     while screens == "game":
+        if prevlev != lev:
+            tiles, pos = loadLevel("Levels/W" + str(world) + "L" + str(lev) + ".lvl")
+            #image = pygame.image.load("Images/Backgrounds/" + str(world) + "LVL" + str(lev) + ".png")
+            prevlev = lev
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -163,7 +169,14 @@ while True:
             elif wall.kind in enemyKinds:
                 if veggie.enemyCollide(wall):
                     veggie = Player(pos)
-
+                    
+        if veggie.screenCollide(screenSize) == "Right":
+            lev += 1
+            veggie.goSide("Right", screenSize)
+        if veggie.screenCollide(screenSize) == "Left":
+            lev -= 1
+            veggie.goSide("Left", screenSize)
+        
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
         # ~ for saltspike in saltspikes:

@@ -1,6 +1,7 @@
 import pygame, sys, math, random
 from SaltSpike import *
 
+
 class Player():
     def __init__(self, pos):
         self.walkLeftImages = [pygame.image.load("Images/Player/BroccoliL1final.png")]
@@ -86,7 +87,19 @@ class Player():
             # ~ self.move()
             # ~ self.speedx = 0
             
-            
+    
+    def screenCollide(self, size):
+        if self.rect.right >= size[0]:
+            return "Right"
+        if self.rect.left < 0:
+            return "Left"
+    
+    def goSide(self, side, size):
+        if side == "Right":
+            self.rect.left = 1
+        if side == "Left":
+            self.rect.right = size[0] - 1
+                    
     def platformCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
