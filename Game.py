@@ -31,7 +31,7 @@ pygame.mixer.music.load(songs[songNum])
 pygame.mixer.music.set_volume(0.4)
 
 
-lev = 2
+lev = 1
 world = 1
 
 enemyKinds = ["saltspike"
