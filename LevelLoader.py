@@ -3,6 +3,7 @@ from Wall import *
 from Ground import *
 from Dirt import *
 from SaltSpike import *
+from Floor import *
 
 def loadLevel (lev):
     f = open(lev, "r")
@@ -15,6 +16,7 @@ def loadLevel (lev):
     walls = []
     grounds = []
     dirts = []
+    floors = []
     saltspikes = []
     playerPos = []
     
@@ -37,13 +39,15 @@ def loadLevel (lev):
                 tiles += [Ground([x*size+offset, y*size+offset])]
             if c == "D":
                 tiles += [Dirt([x*size+offset, y*size+offset])]
+            if c == "F":
+                tiles += [Floor([x*size+offset, y*size+offset])]
             if c == "^":
                 tiles += [SaltSpike([x*size+offset, y*size+offset + 4])]
     
             if c == "C":
                 playerPos += [x*size+offset, y*size+offset]
     
-    # ~ tiles = [walls, grounds, dirts, saltspikes, playerPos]
+    # ~ tiles = [walls, grounds, dirts, saltspikes, floors, playerPos]
     return tiles, playerPos
 
 #loadLevel("Levels/W1lL2.lvl")
