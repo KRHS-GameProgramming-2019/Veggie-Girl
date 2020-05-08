@@ -38,7 +38,8 @@ world = 1
 enemyKinds = ["saltspike"
              ]
 platformKinds = ["dirt", 
-                "walls", 
+                "walls",
+                "floor", 
                 ]
 
 screenLength = 900
@@ -74,7 +75,7 @@ while True:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
-                elif event.key == pygame.K_w:
+                elif event.key == pygame.K_p:
                     screens = "secret"
 
 
@@ -190,6 +191,8 @@ while True:
         win.blit(veggie.image, veggie.rect)
         # ~ for saltspike in saltspikes:
             # ~ win.blit(saltspike.image,saltspike.rect)
+        # ~ for floor in floors:
+            # ~ win.blit(floor.image,floor.rect)
         # ~ for dirt in dirts:
             # ~ win.blit(dirt.image,dirt.rect)
         # ~ for ground in grounds:
