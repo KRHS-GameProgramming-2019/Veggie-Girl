@@ -8,6 +8,7 @@ from SaltSpike import *
 from Steak import *
 from LevelLoader import *
 from Wall import *
+from Button import *
 
 #--------------------Setup---------------------
 pygame.init()
@@ -56,13 +57,20 @@ while True:
     imgRect = image.get_rect()
     pygame.mixer.music.load("Sounds/894845_Im-Gay-Intro.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-
+    startButton=Button("StartButton", [350,100])
 
     #------------Menu Loop-----------
     while screens == "menu":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit();
+            elif event.type == pygame.MOUSEMOTION:
+                startButton.update(event.pos, event.buttons)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                startButton.click(event.pos)
+            elif event.type == pygame.MOUSEBUTTONUP:
+                if startButton.click(event.pos):
+                    screens = "game"
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
@@ -73,6 +81,7 @@ while True:
                 elif event.key == pygame.K_ESCAPE:
                     sys.exit();
         win.blit(image, imgRect)
+        win.blit(startButton.image, startButton.rect)
         pygame.display.flip()
 
     image = pygame.image.load("Images/Backgrounds/walScreen.png")
