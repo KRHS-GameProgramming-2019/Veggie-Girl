@@ -5,8 +5,8 @@
 #                                  #
 #                                  #
 #         WCCCCCCCCCCCCCCCCCCCCCCCC#
-#         W                        E
-#         W   FF       ^^^    ^^^  E
+#         W  J  J                   
+#         W   FF  J    ^^^    ^^^ J 
 #         W        FFFFFFFFFFFFFFF #
 #         w        W               #
 #         W        W               #
@@ -24,9 +24,9 @@
 #         W        W               #
 #                  W               #
 #                  W               #
-                   W                
-                   W                
- C           T                      
+                   W               #
+                   W               #
+ C           T                     #
 GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
