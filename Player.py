@@ -44,7 +44,8 @@ class Player():
 
     def jump(self): 
         if not self.isJump:
-            self.isJump = True 
+            self.isJump = True
+            self.floor = 900 
             self.speedy = -2.5 * self.maxSpeed; 
         
     def go(self, direction):
@@ -106,13 +107,28 @@ class Player():
                 if self.rect.left < other.rect.right:
                     if self.rect.bottom > other.rect.top:
                         if self.rect.top < other.rect.bottom:
+                            if self.rect.y < other.rect.y:
+                                self.rect.bottom = other.rect.top - 1
+                                self.floor = self.rect.bottom
+                            else:
+                                self.rect.top = other.rect.bottom + 1
+
+                            return True
+        return False
+    
+    def vineCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
                             if self.speedx != 0:
                                 self.speedx = -self.speedx
                                 self.move()
-                                self.speedx = 0
+                                self.speedx = 0    
                             return True
         return False
-        
+            
     def enemyCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
@@ -122,7 +138,18 @@ class Player():
                             
                             return True
         return False
-        
+    
+    def fallCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            self.floor = 900
+                            self.isJump = True
+                            return True
+        return False    
+    
     def update(self, size):
         
         self.move()

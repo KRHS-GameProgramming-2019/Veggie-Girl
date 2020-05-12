@@ -8,6 +8,7 @@ from SaltSpike import *
 from Steak import *
 from LevelLoader import *
 from Wall import *
+from FallBlock import *
 from Button import *
 
 #--------------------Setup---------------------
@@ -39,7 +40,9 @@ enemyKinds = ["saltspike"
              ]
 platformKinds = ["dirt", 
                 "walls",
-                "floor", 
+                "floor",
+                "ground", 
+                "fallblock", 
                 ]
 
 screenLength = 900
@@ -172,12 +175,18 @@ while True:
                     veggie.go("sright")
 
         veggie.update(screenSize)
-        for wall in tiles:
-            if wall.kind in platformKinds:
-                if veggie.platformCollide(wall):
+        for tile in tiles:
+            if tile.kind in ["floor", "ground"]:
+                if veggie.platformCollide(tile):
+                    print (">>>>>>>>>>>>Hit Floor")
+            if tile.kind == "wall":
+                if veggie.vineCollide(tile):
                     print (">>>>>>>>>>>>Hit Wall")
-            elif wall.kind in enemyKinds:
-                if veggie.enemyCollide(wall):
+            if tile.kind == "fallblock":
+                if veggie.fallCollide(tile):
+                    print (">>>>>>>>>>>>Hit Fall")
+            elif tile.kind in enemyKinds:
+                if veggie.enemyCollide(tile):
                     veggie = Player(pos)
                     
         if veggie.screenCollide(screenSize) == "Right":
