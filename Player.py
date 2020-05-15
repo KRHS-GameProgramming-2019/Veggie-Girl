@@ -4,8 +4,8 @@ from SaltSpike import *
 
 class Player():
     def __init__(self, pos):
-        self.walkLeftImages = [pygame.image.load("Images/Player/BroccoliL1final.png")]
-        self.walkRightImages = [pygame.image.load("Images/Player/BroccoliR1.png")]
+        self.walkLeftImages = [pygame.image.load("Images/Player/BroccoliL.png")]
+        self.walkRightImages = [pygame.image.load("Images/Player/BroccoliR.png")]
         self.standImages = [pygame.image.load("Images/Player/Broccolistanding.png")]
         self.images = self.standImages
         self.frame = 0
