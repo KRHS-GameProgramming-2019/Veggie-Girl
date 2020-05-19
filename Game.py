@@ -11,6 +11,7 @@ from Steak import *
 from LevelLoader import *
 from Wall import *
 from FallBlock import *
+from Steak import *
 from Button import *
 
 #--------------------Setup---------------------
@@ -41,6 +42,7 @@ world = 1
 enemyKinds = ["saltspike",
               "sidespikel",
               "sidespiker",
+              "steak",
              ]
 platformKinds = ["dirt", 
                 "walls",

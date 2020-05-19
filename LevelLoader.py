@@ -7,6 +7,7 @@ from SideSpikeL import *
 from SideSpikeR import *
 from Floor import *
 from FallBlock import *
+from Steak import *
 
 def loadLevel (lev):
     f = open(lev, "r")
@@ -20,6 +21,7 @@ def loadLevel (lev):
     grounds = []
     dirts = []
     floors = []
+    steaks = []
     fallblocks = []
     saltspikels = []
     saltspikers = []
@@ -55,6 +57,8 @@ def loadLevel (lev):
                 tiles += [SideSpikeL([x*size+offset, y*size+offset])]
             if c == ">":
                 tiles += [SideSpikeR([x*size+offset, y*size+offset])]
+            if c == "S":
+                tiles += [Steak([x*size+offset, y*size+offset - 5])]
     
             if c == "C":
                 playerPos += [x*size+offset, y*size+offset]
