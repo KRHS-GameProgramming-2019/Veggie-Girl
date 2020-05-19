@@ -5,6 +5,8 @@ from Levels import *
 from Items import *
 from Bosses import *
 from SaltSpike import *
+from SideSpikeL import *
+from SideSpikeR import *
 from Steak import *
 from LevelLoader import *
 from Wall import *
@@ -36,7 +38,9 @@ pygame.mixer.music.set_volume(0.4)
 lev = 1
 world = 1
 
-enemyKinds = ["saltspike"
+enemyKinds = ["saltspike",
+              "sidespikel",
+              "sidespiker",
              ]
 platformKinds = ["dirt", 
                 "walls",

@@ -3,6 +3,8 @@ from Wall import *
 from Ground import *
 from Dirt import *
 from SaltSpike import *
+from SideSpikeL import *
+from SideSpikeR import *
 from Floor import *
 from FallBlock import *
 
@@ -19,7 +21,9 @@ def loadLevel (lev):
     dirts = []
     floors = []
     fallblocks = []
-    saltspikes = []
+    saltspikels = []
+    saltspikers = []
+    sidespikes = []
     playerPos = []
     
     newLines = []
@@ -47,11 +51,15 @@ def loadLevel (lev):
                 tiles += [FallBlock([x*size+offset, y*size+offset])]
             if c == "^":
                 tiles += [SaltSpike([x*size+offset, y*size+offset + 4])]
+            if c == "<":
+                tiles += [SideSpikeL([x*size+offset, y*size+offset])]
+            if c == ">":
+                tiles += [SideSpikeR([x*size+offset, y*size+offset])]
     
             if c == "C":
                 playerPos += [x*size+offset, y*size+offset]
     
-    # ~ tiles = [walls, grounds, dirts, saltspikes, fallblocks, floors, playerPos]
+    # ~ tiles = [walls, grounds, dirts, saltspikes, sidespikels, fallblocks, floors, playerPos]
     return tiles, playerPos
 
 #loadLevel("Levels/W1lL2.lvl")
