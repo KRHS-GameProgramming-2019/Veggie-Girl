@@ -138,7 +138,11 @@ while True:
     while screens == "game":
         if prevlev != lev:
             tiles, pos = loadLevel("Levels/W" + str(world) + "L" + str(lev) + ".lvl")
-            #image = pygame.image.load("Images/Backgrounds/" + str(world) + "LVL" + str(lev) + ".png")
+            try:
+                image = pygame.image.load("Images/Backgrounds/" + str(world) + "LVL" + str(lev) + ".png")
+            except:
+                print("********NO BACKBROUND FOUND************")
+                image = pygame.image.load("Images/Backgrounds/GrassLVL.png")
             prevlev = lev
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
