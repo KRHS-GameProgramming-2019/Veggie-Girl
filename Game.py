@@ -138,9 +138,9 @@ while True:
     while screens == "game":
         if prevlev != lev:
             tiles, pos = loadLevel("Levels/W" + str(world) + "L" + str(lev) + ".lvl")
-            try:
+            try:        #Try to load background; but don't crash if you don't find it
                 image = pygame.image.load("Images/Backgrounds/" + str(world) + "LVL" + str(lev) + ".png")
-            except:
+            except:     #Load default and complain in console if the file wasn't found or able to be loaded
                 print("********NO BACKBROUND FOUND************")
                 image = pygame.image.load("Images/Backgrounds/GrassLVL.png")
             prevlev = lev
