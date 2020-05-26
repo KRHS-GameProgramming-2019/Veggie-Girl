@@ -188,7 +188,7 @@ while True:
 
         veggie.update(screenSize)
         for tile in tiles:
-            if tile.kind in ["floor", "ground"]:
+            if tile.kind in ["floor", "ground", "cobble"]:
                 if veggie.platformCollide(tile):
                     print (">>>>>>>>>>>>Hit Floor")
             if tile.kind == "wall":
