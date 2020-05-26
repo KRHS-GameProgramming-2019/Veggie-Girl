@@ -6,6 +6,7 @@ from SaltSpike import *
 from SideSpikeL import *
 from SideSpikeR import *
 from Floor import *
+from CobbleWall import *
 from FallBlock import *
 from Steak import *
 
@@ -26,6 +27,7 @@ def loadLevel (lev):
     saltspikels = []
     saltspikers = []
     sidespikes = []
+    cobbles = []
     playerPos = []
     
     newLines = []
@@ -57,6 +59,8 @@ def loadLevel (lev):
                 tiles += [SideSpikeL([x*size+offset, y*size+offset])]
             if c == ">":
                 tiles += [SideSpikeR([x*size+offset, y*size+offset])]
+            if c == "W":
+                tiles += [Cobbled([x*size+offset, y*size+offset])]
             if c == "S":
                 tiles += [Steak([x*size+offset, y*size+offset - 5])]
     

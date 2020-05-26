@@ -8,6 +8,7 @@ from SaltSpike import *
 from SideSpikeL import *
 from SideSpikeR import *
 from Steak import *
+from CobbleWall import *
 from LevelLoader import *
 from Wall import *
 from FallBlock import *
@@ -49,6 +50,7 @@ platformKinds = ["dirt",
                 "floor",
                 "ground", 
                 "fallblock", 
+                "cobble", 
                 ]
 
 screenLength = 900
