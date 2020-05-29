@@ -69,7 +69,7 @@ while True:
     imgRect = image.get_rect()
     pygame.mixer.music.load("Sounds/894845_Im-Gay-Intro.ogg")
     pygame.mixer.music.play(loops=-1, start=0.0)
-    startButton=Button("StartButton", [350,100])
+    startButton=Button("StartButton", [400,255])
 
     #------------Menu Loop-----------
     while screens == "menu":
