@@ -61,7 +61,7 @@ win = pygame.display.set_mode(screenSize)
 pygame.display.set_caption("Veggie Girl")
 
 screens = "menu"
-#-----------------Game Loop---------------------
+#--------------------Game Loop--------------------#
 while True:
     #--------------------Menu-----------------
     #------------Menu Setup------------
@@ -120,9 +120,35 @@ while True:
         win.blit(image, imgRect)
         pygame.display.flip()
 
+    #--------------------End Loop--------------------#
+    while screens == "end":
+        for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit();
+                    
+                    #Quit button code please
+                    
+                if event.key == pygame.K_ESCAPE:
+                    sys.exit();
+        win.blit(image, imgRect)
+        win.blit(startButton.image, startButton.rect)
+        pygame.display.flip()
 
-    #--------------------Game-----------------
-    #--------------Game Setup-------------
+        image = pygame.image.load("Images/Backgrounds/end2.png")
+        imgRect = image.get_rect()
+        pygame.mixer.music.stop()
+
+
+
+
+
+
+        if event.key == pygame.K_ESCAPE:
+            sys.exit();
+        win.blit(image, imgRect)
+        pygame.display.flip()
+    #--------------------  Game  --------------------#
+    #-------------------Game Setup-------------------#
     tiles, pos = loadLevel("Levels/W" + str(world) + "L" + str(lev) + ".lvl")
     veggie = Player(pos)
 
@@ -201,8 +227,10 @@ while True:
             if tile.kind == "end":
                 if veggie.endCollide(tile):
                     print (">>>>>>>>>>>>Hit End")
+                    screens = "end"
             elif tile.kind in enemyKinds:
                 if veggie.enemyCollide(tile):
+                    print("------------------------", pos)
                     veggie = Player(pos)
                     
         if veggie.screenCollide(screenSize) == "Right":
