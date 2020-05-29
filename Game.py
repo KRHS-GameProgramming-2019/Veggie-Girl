@@ -1,8 +1,6 @@
 import sys, math, pygame, random
 from Player import *
-from Tilesets import *
-from Levels import *
-from Items import *
+from EndBlock import *
 from Bosses import *
 from SaltSpike import *
 from SideSpikeL import *
@@ -52,6 +50,9 @@ platformKinds = ["dirt",
                 "fallblock", 
                 "cobble", 
                 ]
+endKind = ["end",
+            
+          ]
 
 screenLength = 900
 screenWidth = 800
@@ -197,6 +198,9 @@ while True:
             if tile.kind == "fallblock":
                 if veggie.fallCollide(tile):
                     print (">>>>>>>>>>>>Hit Fall")
+            if tile.kind == "end":
+                if veggie.endCollide(tile):
+                    print (">>>>>>>>>>>>Hit End")
             elif tile.kind in enemyKinds:
                 if veggie.enemyCollide(tile):
                     veggie = Player(pos)
@@ -207,17 +211,11 @@ while True:
         if veggie.screenCollide(screenSize) == "Left":
             lev -= 1
             veggie.goSide("Left", screenSize)
+
         
         win.blit(image, imgRect)
         win.blit(veggie.image, veggie.rect)
-        # ~ for saltspike in saltspikes:
-            # ~ win.blit(saltspike.image,saltspike.rect)
-        # ~ for floor in floors:
-            # ~ win.blit(floor.image,floor.rect)
-        # ~ for dirt in dirts:
-            # ~ win.blit(dirt.image,dirt.rect)
-        # ~ for ground in grounds:
-            # ~ win.blit(ground.image,ground.rect)
+
         for wall in tiles:
             win.blit(wall.image,wall.rect)
         pygame.display.flip()

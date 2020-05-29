@@ -2,6 +2,7 @@ import pygame, sys, math
 from Wall import *
 from Ground import *
 from Dirt import *
+from EndBlock import *
 from SaltSpike import *
 from SideSpikeL import *
 from SideSpikeR import *
@@ -28,6 +29,7 @@ def loadLevel (lev):
     saltspikers = []
     sidespikes = []
     cobbles = []
+    ends = []
     playerPos = []
     
     newLines = []
@@ -61,13 +63,12 @@ def loadLevel (lev):
                 tiles += [SideSpikeR([x*size+offset, y*size+offset])]
             if c == "W":
                 tiles += [Cobbled([x*size+offset, y*size+offset])]
+            if c == "O":
+                tiles += [END([x*size+offset, y*size+offset])]
             if c == "S":
                 tiles += [Steak([x*size+offset, y*size+offset - 5])]
     
             if c == "C":
                 playerPos += [x*size+offset, y*size+offset]
     
-    # ~ tiles = [walls, grounds, dirts, saltspikes, sidespikels, fallblocks, floors, playerPos]
     return tiles, playerPos
-
-#loadLevel("Levels/W1lL2.lvl")
