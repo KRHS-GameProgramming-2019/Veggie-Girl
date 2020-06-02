@@ -5,7 +5,7 @@ import pygame
 
 
 class Button():
-    def __init__(self, name, pos=[900000,900000]):
+    def __init__(self, name, pos=[0,0]):
         self.name=name
         self.baseImage=pygame.image.load("Images/Buttons/"+name+".png")
         self.hoverImage=pygame.image.load("Images/Buttons/"+name+"_Hover.png")

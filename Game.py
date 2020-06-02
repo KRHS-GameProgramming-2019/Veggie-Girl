@@ -84,6 +84,8 @@ while True:
             elif event.type == pygame.MOUSEBUTTONUP:
                 if startButton.click(event.pos):
                     screens = "game"
+                elif LeaveButoon.click(event.pos):
+					sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     screens = "game"
