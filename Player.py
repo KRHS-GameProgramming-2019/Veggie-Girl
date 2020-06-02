@@ -79,14 +79,7 @@ class Player():
         width = size[0]
         height = size[1]
         
-        # ~ if self.rect.right > width:
-            # ~ self.speedx = -self.speedx
-            # ~ self.move()
-            # ~ self.speedx = 0
-        # ~ if self.rect.left < 0:
-            # ~ self.speedx = -self.speedx
-            # ~ self.move()
-            # ~ self.speedx = 0
+
             
     
     def screenCollide(self, size):
@@ -130,6 +123,16 @@ class Player():
         return False
             
     def enemyCollide(self, other):
+        if self != other:
+            if self.rect.right > other.rect.left:
+                if self.rect.left < other.rect.right:
+                    if self.rect.bottom > other.rect.top:
+                        if self.rect.top < other.rect.bottom:
+                            
+                            return True
+        return False
+    
+    def endCollide(self, other):
         if self != other:
             if self.rect.right > other.rect.left:
                 if self.rect.left < other.rect.right:
