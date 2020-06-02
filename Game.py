@@ -128,8 +128,6 @@ while True:
                     
                     #Quit button code please
                     
-                if event.key == pygame.K_ESCAPE:
-                    sys.exit();
         win.blit(image, imgRect)
         win.blit(startButton.image, startButton.rect)
         pygame.display.flip()
